@@ -1,0 +1,9 @@
+<mvc:View controllerName="_01oDataUpdate.controller.Main" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+   <Page title="{i18n>homePageTitle}" class="sapUiResponsiveContentPadding">			
+		<content>
+			<Text text="test" />
+			<Input id="input-id" value="{main>/productNr}"></Input>
+			<Button text="Edit" press="onPress" />
+		</content>
+	</Page>
+</mvc:View>
