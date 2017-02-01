@@ -3,7 +3,7 @@
 		<content>
 			<Text text="test" />
 			<Input id="input-id" value="{main>/productNr}"></Input>
-			<Button text="Edit" press="onPress" />
+			<Button text="Go to next view" press="onPress" />
 		</content>
 	</Page>
 </mvc:View>

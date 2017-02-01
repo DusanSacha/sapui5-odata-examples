@@ -1,6 +1,7 @@
 sap.ui.define([
-	"_01oDataUpdate/controller/BaseController"
-], function(BaseController) {
+	"_01oDataUpdate/controller/BaseController",
+	"sap/m/MessageToast"
+], function(BaseController,MessageToast) {
 	"use strict";
 
 	return BaseController.extend("_01oDataUpdate.controller.Detail", {
@@ -28,12 +29,19 @@ sap.ui.define([
 			});
 		},
 		onSave: function(oEvent) {
-			debugger; 
-			var oData = this.getView().getBindingContext("northwind").getObject();
-			console.log(oData);
-			// here I would like to update my data via ODATA service:
-			// this.getView().getModel().update(....)
-			// but input from user is NOT in model
+			var oBindingContext = this.getView().getBindingContext("northwind");
+			var sPath = oBindingContext.getPath();
+			var oReqData = oBindingContext.getObject();
+			
+			this.getModel("northwind").update(sPath, oReqData, {
+				success: function (oData, response) {
+					MessageToast.show("Item updated successfully");
+				},
+				error: function (oError) {
+					MessageToast.show("Error during update, please check console log");
+					console.log(oError);
+				}
+			});
 		}
 	});
 });
