@@ -2,7 +2,7 @@
    <Page title="{i18n>homePageTitle}" class="sapUiResponsiveContentPadding">			
 		<content>
 			<Text text="test" />
-			<Input id="input-id" value="{main>/productNr}"></Input>
+			<Input showValueHelp="true" valueHelpRequest="handleValueHelp" id="input-id" value="{main>/productNr}"></Input>
 			<Button text="Go to next view" press="onPress" />
 		</content>
 	</Page>
